@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link src="./css/style.css">
+    </link>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Weather App</title>
+</head>
+
+<body class="bg-dark">
+    <div class="container bg-dark text-light">
+        <div class="container border">
+            <div class="row">
+                <div class="col border text-center">Weather App</div>
+            </div>
+        </div>
+        <div class="container border">
+            <div class="col">
+                <div class="input-group pb-3 pt-3">
+                    <input type="text" class="form-control" placeholder="Zip Code" aria-label="Zip Code"
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Get Weather</button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container" id="weatherHere">
+            <!-- City -->
+            <div class="container">
+                <div class="row">
+                    <div class="col border">
+                        City:
+                    </div>
+                    <div class="col border">
+                        <!-- call api city here -->
+                    </div>
+                </div>
+                <!-- Temperature -->
+                <div class="row pt-3">
+                    <div class="col border">
+                        Temperature:
+                    </div>
+                    <div class="col border">
+                        <!-- call api Temp (k) here -->
+                    </div>
+                    <div class="col border">
+                        <!-- call api Temp (C) here -->
+                    </div>
+                    <div class="col border">
+                        <!-- call api Temp (F) here -->
+                    </div>
+                </div>
+                <!-- Conditions -->
+                <div class="row pt-3">
+                    <div class="col border">
+                        Conditions:
+                    </div>
+                    <div class="col border">
+                        <!-- call conditions here -->
+                    </div>
+                </div>
+                <!-- Other Info -->
+                <div class="row pt-3">
+                    <div class="col border">
+                        Other Info:
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <script src="js/main.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
