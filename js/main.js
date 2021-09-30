@@ -60,7 +60,6 @@ function zipNotFound() {
 
 function imageChoice(temp) {
     if (temp >= 297) {
-        console.log('something')
         otherInfo.src = './img/image1.jpeg';
     } else if (temp < 297 && temp >= 281) {
         otherInfo.src = 'img/image2.png';
@@ -68,3 +67,4 @@ function imageChoice(temp) {
         otherInfo.src = 'img/image3.jpeg';
         }
 }
+

@@ -26,7 +26,7 @@
             <div class="col">
                 <div class="input-group pb-3 pt-3">
                     <input type="text" class="form-control" placeholder="Zip Code" aria-label="Zip Code"
-                        aria-describedby="button-addon2" id="zipInput" maxlength="5" pattern="\d*">
+                        aria-describedby="button-addon2" id="zipInput" maxlength="5" pattern="\d*" autofocus>
                     <button class="btn btn-outline-secondary" id="button1">Get Weather</button>
                 </div>
             </div>
@@ -49,32 +49,40 @@
                     <div class="col border">
                         Temperature:
                     </div>
+                </div>
+                <div class="row">
                     <div class="col border" id="temp">
                         <!-- call api Temp (k) here -->
                     </div>
-                    <div class="col border" id="tempC">
-                        <!-- call api Temp (C) here -->
-                    </div>
-                    <div class="col border" id="tempF">
-                        <!-- call api Temp (F) here -->
-                    </div>
+                        <div class="col border" id="tempC">
+                            <!-- call api Temp (C) here -->
+                        </div>
+                        <div class="col border" id="tempF">
+                            <!-- call api Temp (F) here -->
+                        </div>
+                    
                 </div>
                 <!-- Conditions -->
                 <div class="row p-3">
-                    <div class="col border">
+                    <div class="col border text-center">
                         Conditions:
                     </div>
-                    <div class="col border" id="conditions">
+                </div>
+                <div class="row">
+                    <div class="col border text-center" id="conditions">
                         <!-- call conditions here -->
                     </div>
                 </div>
+
                 <!-- Other Info -->
                 <div class="row p-3">
-                    <div class="col border" >
-                        Other Info:
+                    <div class="col border text-center">
+                        Temperature at a Glance:
                     </div>
-                    <div class="col border" >
-                        <img src="" class="image-fluid" id="otherInfo">
+                </div>
+                <div class="row">
+                    <div class="col border" style="max-height: 250px;">
+                        <img src="" class="image-responsive mh-100 mx-auto d-block" id="otherInfo">
                     </div>
                 </div>
             </div>
