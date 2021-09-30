@@ -29,17 +29,16 @@ order of operations
 4. SUBMIT(API)
 
 Functions
-    sendToApi()
-        * run call to api with zipcode pulled from zipInput
-
-    calculateKelvinToFarenheit()
-    calculateKelvinToCelsius()
+    apiCall()
+        * run call to api with zipcode concatenated from zipInput, change information in divs matched to ids with info in api response
+    zipNotFound()
+        * makes 
     
 Objects
     zipInput
-        * limited to 5 digits, numbers only
+        * limited to 5 digits, text replaces zip of apiLink
     button
-        * when clicked, sends zipInput information concatenated with url pieces to api and returns that info parsed into html
+        * when clicked, apiCall()
 
 Variables
     * variable for each area text must be written - city, temperature (k, c, f), condition, other info
@@ -48,13 +47,22 @@ Variables
 load page
     html displays
 
-    enter zip in input
-        button clicked 
+    user enters zip in input
+        button1 clicked 
+        IF request is answered
+            display api info to page matched to ids
             - concatenate url pieces with zip 
             - send request to api
+            - change weatherHere
+            - make error display - none
+            IF tempF > 70
+                display image1 in otherInfo
+            ELSEIF temp F > 50 and < 70
+                display image2 in otherInfo
+            ELSE 
+                display image3 in otherInfo
         IF request fails 
             display error message
-        IF request is answered
-            parse json
-            display to page matched to variables
-        repeat when clicked again
+            make weatherHere display - none
+        
+        

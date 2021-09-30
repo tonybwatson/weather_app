@@ -1,16 +1,25 @@
 //   API key 7269431df9a1ea794e395e90f530febd
 
-// variable for inputting zipcode to api url
-var zip = '';
+// declare variables
+let zip = '';
+const btn = document.getElementById('btn');
+const button1 = document.getElementById('button1');
+const apiLink = 'https://api.openweathermap.org/data/2.5/weather?zip=40509,us&appid=7269431df9a1ea794e395e90f530febd';
+const error = document.getElementById('error');
+const city = document.getElementById('city');
+const weatherHere = document.getElementById('weatherHere');
+const temp = document.getElementById('temp');
+const tempC = document.getElementById('tempC');
+const tempF = document.getElementById('tempF');
+const otherInfo = document.getElementById('otherInfo');
+const zipInput = document.getElementById('zipInput')
+const conditions = document.getElementById('conditions');
 
-var btn = document.getElementById('btn');
-var button1 = document.getElementById('button1')
-var apiLink = 'https://api.openweathermap.org/data/2.5/weather?zip=40509,us&appid=7269431df9a1ea794e395e90f530febd'
 
 // on click, call api
 button1.addEventListener('click', apiCall)
 // on "return" pressed, act as though button clicked
-zipInput.addEventListener("keyup", function (event) {
+zipInput.addEventListener('keyup', function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
         button1.click();
@@ -21,32 +30,41 @@ zipInput.addEventListener("keyup", function (event) {
 // Make a request to api
 function apiCall() {
     // replace text in zip with input value
-    zip = document.getElementById('zipInput').value;
+    zip = zipInput.value;
     // call function, replacing '40509' in apiLink with zip
     axios.get(apiLink.replace('40509', zip))
         .then(function (response) {
             // handle success
             console.log(response);
             console.log(response.data.main.temp)
-            document.getElementById('error').style.display = 'none';
-            document.getElementById('weatherHere').style.display = 'block';
-            document.getElementById('city').innerHTML = response.data.name;
-            document.getElementById('temp').innerHTML = Math.round(response.data.main.temp) + 'K';
-            document.getElementById('tempC').innerHTML = (Math.round(response.data.main.temp - 273.15)) + '°C';
-            document.getElementById('tempF').innerHTML = (Math.round(response.data.main.temp - 273.15) * 9 / 5 + 32) + '°F';
-            document.getElementById('conditions').innerHTML = response.data.weather[0].main;
+            error.style.display = 'none';
+            weatherHere.style.display = 'block';
+            city.innerHTML = response.data.name;
+            temp.innerHTML = Math.round(response.data.main.temp) + 'K';
+            tempC.innerHTML = (Math.round(response.data.main.temp - 273.15)) + '°C';
+            tempF.innerHTML = (Math.round(response.data.main.temp - 273.15) * 9 / 5 + 32) + '°F';
+            conditions.innerHTML = response.data.weather[0].main;
+            imageChoice(response.data.main.temp);
         })
         .catch(function (error) {
             zipNotFound();
             console.log(error);
         })
-        .then(function () {
-            // always executed
-        });
 }
 
 function zipNotFound() {
-    document.getElementById('error').style.display = 'block';
-    document.getElementById('error').innerHTML = 'Please enter a valid Zip code.';
+    error.style.display = 'block';
+    error.innerHTML = 'Please enter a valid Zip code.';
     document.getElementById('weatherHere').style.display = 'none';
+}
+
+function imageChoice(temp) {
+    if (temp >= 297) {
+        console.log('something')
+        otherInfo.src = './img/image1.jpeg';
+    } else if (temp < 297 && temp >= 281) {
+        otherInfo.src = 'img/image2.png';
+    } else if (temp <= 280) {
+        otherInfo.src = 'img/image3.jpeg';
+        }
 }
