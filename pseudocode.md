@@ -28,11 +28,32 @@ order of operations
         .errorMsg = ''
 4. SUBMIT(API)
 
+Variables
+    button1 - links to button in document
+    apiLink - variable for api url
+    city
+    temp
+    tempC
+    tempF
+    conditions
+    error
+    weatherHere - container for city, temp, tempC, tempF, otherInfo, conditions
+    zipInput
+    zip - blank string
+    
+
 Functions
     apiCall()
-        * run call to api with zipcode concatenated from zipInput, change information in divs matched to ids with info in api response
+        * run call to api with zipcode concatenated from zipInput, 
+        * make weatherHere display = block
+        * city innerHTML = city from response
+        * temp innerHTML = temp from response
+        * tempC innerHTML = temp calculated to C, 
+        * tempF innerHTML = temp calculate to F
+        * conditions innerHTML = conditions from response
+        * imageChoice()
     zipNotFound()
-        * makes 
+        * makes error message appear if api call unsuccessful or incorrect zip code
     
 Objects
     zipInput
@@ -40,29 +61,27 @@ Objects
     button
         * when clicked, apiCall()
 
-Variables
-    * variable for each area text must be written - city, temperature (k, c, f), condition, other info
-    * zipInput - text from zipInput input
-
-load page
+INIT
     html displays
 
-    user enters zip in input
+    user enters zip in zipInput
         button1 clicked 
+            send request to api
         IF request is answered
-            display api info to page matched to ids
-            - concatenate url pieces with zip 
-            - send request to api
-            - change weatherHere
+            - replace url interior zipcode with zip
+            - change weatherHere to display: block
             - make error display - none
-            IF tempF > 70
+            - display api info to page matched to ids
+            IF temp > 310
+                display image4 in otherInfo
+            ELSEIF temp > 297 and < 311
                 display image1 in otherInfo
-            ELSEIF temp F > 50 and < 70
+            ELSE IF temp < 297 and temp > 281
                 display image2 in otherInfo
-            ELSE 
+            ELSE IF temp <= 280
                 display image3 in otherInfo
         IF request fails 
             display error message
             make weatherHere display - none
-        
-        
+      repeats
+    

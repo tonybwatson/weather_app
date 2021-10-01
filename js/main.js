@@ -2,7 +2,6 @@
 
 // declare variables
 let zip = '';
-const btn = document.getElementById('btn');
 const button1 = document.getElementById('button1');
 const apiLink = 'https://api.openweathermap.org/data/2.5/weather?zip=40509,us&appid=7269431df9a1ea794e395e90f530febd';
 const error = document.getElementById('error');
@@ -37,8 +36,11 @@ function apiCall() {
             // handle success
             console.log(response);
             console.log(response.data.main.temp)
+            // erase error if it's showing
             error.style.display = 'none';
+            // display weatherHere
             weatherHere.style.display = 'block';
+            // replace text in variable html with response data
             city.innerHTML = response.data.name;
             temp.innerHTML = Math.round(response.data.main.temp) + 'K';
             tempC.innerHTML = (Math.round(response.data.main.temp - 273.15)) + '°C';
@@ -53,13 +55,18 @@ function apiCall() {
 }
 
 function zipNotFound() {
+    // display error
     error.style.display = 'block';
     error.innerHTML = 'Please enter a valid Zip code.';
+    // erase weatherHere if it's showing
     document.getElementById('weatherHere').style.display = 'none';
 }
 
+// change image in otherInfo based on temp
 function imageChoice(temp) {
-    if (temp >= 297) {
+    if (temp > 310) {
+        otherInfo.src = './img/image4.jpeg'
+    } else if (temp >= 297 && temp < 311) {
         otherInfo.src = './img/image1.jpeg';
     } else if (temp < 297 && temp >= 281) {
         otherInfo.src = 'img/image2.png';
