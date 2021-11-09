@@ -68,9 +68,9 @@ function imageChoice(temp) {
         otherInfo.src = './img/image4.jpeg'
     } else if (temp >= 297 && temp < 311) {
         otherInfo.src = './img/image1.jpeg';
-    } else if (temp < 297 && temp >= 281) {
+    } else if (temp < 297 && temp >= 280) {
         otherInfo.src = 'img/image2.png';
-    } else if (temp <= 280) {
+    } else if (temp < 280) {
         otherInfo.src = 'img/image3.jpeg';
         }
 }
